@@ -12,13 +12,16 @@
     h2 {
         color: #ffffff;
     }
-    h3 {
-        color: #ffffff;
+    h4 {
+        label {
+            color: #d8392b;
+        }
+        color: #aaaaaa;
     }
 }
 
-.image-level-small {
-    background-image: linear-gradient(to bottom, #ffffff, #2196f3);
+.up-image-level {
+    background-image: linear-gradient(to top, #ffffff, #2196f3);
     .background {
         object-fit: scale-down;
         height: auto;
@@ -31,7 +34,10 @@
     h2 {
         color: #ffffff;
     }
-    h3 {
-        color: #ffffff;
+    h4 {
+        label {
+            color: #d8392b;
+        }
+        color: #aaaaaa;
     }
 }
