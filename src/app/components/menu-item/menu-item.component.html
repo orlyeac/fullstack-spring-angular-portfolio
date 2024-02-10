@@ -1,0 +1,9 @@
+<div *ngIf="item.label && item.label.length > 0; else withoutLabel">
+    <i [class]="item.icon"></i>
+    <label class="mr-4">{{ item.label }}</label>
+</div>
+<ng-template #withoutLabel>
+    <div>
+        <i [class]="item.icon"></i>
+    </div>
+</ng-template>

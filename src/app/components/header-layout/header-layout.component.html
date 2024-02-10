@@ -1,0 +1,75 @@
+<div class="
+    flex
+    flex-row
+    align-items-center
+    justify-content-between
+    border-bottom-1
+    border-gray-200
+    pt-3
+    pb-3"
+>
+    <div class="hidden md:block">
+        <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-bars"
+            (click)="emitMenuDisplay(true)"
+            class="
+                p-button-rounded
+                p-button-secondary
+                p-button-text
+                ml-3"
+        ></button>
+    </div>
+    <div class="block md:hidden">
+        <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-bars"
+            (click)="emitMenuDisplay(false)"
+            class="
+                p-button-rounded
+                p-button-secondary
+                p-button-text
+                ml-3"
+        ></button>
+    </div>
+    <div class="flex flex-row">
+        <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-bell"
+            class="
+                p-button-rounded
+                p-button-secondary
+                p-button-text mr-3"
+        ></button>
+        <p-avatar
+            [label]="username[0].toUpperCase()"
+            styleClass="mr-2"
+            [style]="iconLookAndFeel(username)"
+            shape="circle"
+        ></p-avatar>
+        <div>
+            <p class="text-base mb-0 mt-1 text-gray-700">{{ username }}</p>
+            <p class="text-sm mb-1 mt-0 text-gray-500">ADMIN</p>
+        </div>
+        <div>
+            <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-angle-down"
+                class="
+                    p-button-rounded
+                    p-button-secondary
+                    p-button-text"
+                    (click)="popup.toggle($event)"
+            ></button>
+            <p-menu #popup [popup]="true" [model]="menu"></p-menu>
+        </div>
+    </div>    
+</div>

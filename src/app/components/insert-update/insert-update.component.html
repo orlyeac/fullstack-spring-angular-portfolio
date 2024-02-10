@@ -1,0 +1,66 @@
+<div>
+    <h3>Insert / Update</h3>
+    <div class="field">
+        <label for="name">Name</label>
+        <input
+            id="name"
+            pInputText
+            placeholder="John Doe"
+            type="text"
+            class="w-full"
+        >
+    </div>
+    <div class="field">
+        <label for="email">Email</label>
+        <input
+            id="email"
+            pInputText
+            placeholder="johndoe@email.com"
+            type="email"
+            class="w-full"
+        >
+    </div>
+    <div class="field">
+        <label for="password">Password</label>
+        <input
+            id="password"
+            pInputText
+            placeholder="Password"
+            type="password"
+            class="w-full"
+        >
+    </div>
+    <div class="field">
+        <label for="yearOfBirth">Year of birth</label>
+        <p-calendar
+            id="yearOfBirth"
+            [(ngModel)]="date"
+            view="year"
+            dateFormat="yy"
+            inputId="yearOfBirth"
+            (ngModelChange)="modify()"
+            class="ml-3"
+        ></p-calendar>
+    </div>
+    <div class="field">
+        <label for="gender">Gender</label>
+        <p-dropdown
+            id="gender"
+            [options]="options"
+            [(ngModel)]="gender"
+            [showClear]="true"
+            placeholder="Choose option"
+            class="ml-3"
+        ></p-dropdown>
+    </div>
+    <button
+        pButton
+        label="Submit"
+        class="w-full"
+    ></button>
+    <button
+        pButton
+        label="Quit"
+        class="w-full p-button-outlined p-button-danger mt-3"
+    ></button>
+</div>

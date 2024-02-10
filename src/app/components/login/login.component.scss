@@ -1,0 +1,37 @@
+.image-level {
+    background-image: linear-gradient(to right, #ffffff, #2196f3);
+    .background {
+        object-fit: scale-down;
+        height: auto;
+        max-width: 55%;
+    }
+    h1 {
+        color: #ffffff;
+        font-size: 56px;
+    }
+    h2 {
+        color: #ffffff;
+    }
+    h3 {
+        color: #ffffff;
+    }
+}
+
+.image-level-small {
+    background-image: linear-gradient(to bottom, #ffffff, #2196f3);
+    .background {
+        object-fit: scale-down;
+        height: auto;
+        max-width: 55%;
+    }
+    h1 {
+        color: #ffffff;
+        font-size: 56px;
+    }
+    h2 {
+        color: #ffffff;
+    }
+    h3 {
+        color: #ffffff;
+    }
+}

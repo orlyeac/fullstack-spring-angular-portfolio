@@ -1,0 +1,19 @@
+<h4 *ngIf="isDisplayedMenu" class="text-center mt-0">
+    Dashboard
+</h4>
+<div class="text-center mt-0">
+    <p-avatar
+        label="T"
+        styleClass="mr-2 ml-2"
+        size="xlarge"
+        [style]="{ 'background-color': '#2196f3', color: '#ffffff' }"
+        shape="circle"
+    >
+    </p-avatar>
+</div>
+<div>
+    <app-menu-item *ngFor="let i of menu"
+        [item]="isDisplayedMenu ? i : { label: '', icon: i.icon }"
+    >
+    </app-menu-item>
+</div>
