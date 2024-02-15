@@ -18,6 +18,12 @@
                 shape="circle"
             ></p-avatar>
             <h1>Login to your account</h1>
+            <p-message
+                *ngIf="failText"
+                severity="error"
+                [text]="failText"
+                styleClass="mb-3"
+            ></p-message>
             <div class="field">
                 <label
                     for="email"
@@ -28,6 +34,7 @@
                 <input
                     id="email"
                     pInputText
+                    [(ngModel)]="authenticationRequest.username"
                     placeholder="johndoe@email.com"
                     type="email"
                     class="w-full"
@@ -43,6 +50,7 @@
                 <input
                     id="password"
                     pInputText
+                    [(ngModel)]="authenticationRequest.password"
                     placeholder="Password"
                     type="password"
                     class="w-full"
@@ -50,7 +58,8 @@
             </div>
             <button
                 pButton
-                label="Submit"
+                (click)="login()"
+                label="Login"
                 class="w-full"
             ></button>
             <div class="

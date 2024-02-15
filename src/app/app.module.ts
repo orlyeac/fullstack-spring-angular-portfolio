@@ -21,6 +21,8 @@ import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { LoginComponent } from './components/login/login.component';
     SidebarModule,
     InputTextModule,
     CalendarModule,
-    DropdownModule
+    DropdownModule,
+    HttpClientModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
