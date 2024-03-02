@@ -1,0 +1,122 @@
+<p-card class="block lg:hidden mt-3" [style]="{width: '240px'}" styleClass="p-card-shadow text-center">
+    <div class="flex flex-row justify-content-center align-items-center themd">
+        <p-avatar
+            [label]="customer?.name?.toUpperCase()?.charAt(0)"
+            styleClass="mr-1"
+            [style]="{
+                'background-color': iconLookAndFeel(customer?.email),
+                'color': '#ffffff',
+                'border': 'solid 3px #ffffff'
+            }"
+            shape="circle"
+            size="large"
+        ></p-avatar>
+        <h4 class="thename">{{ customer?.name }}</h4>
+    </div>    
+    <p class="thelinkit">
+        <span class="font-bold text-gray-600">{{ getLabourLink() }}</span>
+        <span *ngIf="customer?.company" class="text-gray-500 ml-1 mr-1">{{ getConcat() }}</span>
+        <span class="font-bold text-gray-600">{{ customer?.company }}</span>
+    </p>
+    <ng-template pTemplate="footer">
+        <div class="flex flex-row justify-content-center">
+            <p-button
+                pRipple
+                icon="pi pi-comment"
+                [label]="adminPanel() == true ? '' : 'Watch reviews from ' + customer?.name?.split(' ')?.at(0)"
+                [outlined]="true"
+                [rounded]="true"
+                severity="secondary"
+                size="small"
+                (click)="null"
+            ></p-button>
+            <div *ngIf="adminPanel() == true">
+                <p-button
+                    pRipple
+                    icon="pi pi-pencil"
+                    [outlined]="true"
+                    [rounded]="true"
+                    severity="success"
+                    size="small"
+                    class="ml-1 mr-1"
+                    (click)="null"
+                ></p-button>
+                <p-button
+                    pRipple
+                    icon="pi pi-trash"
+                    [outlined]="true"
+                    [rounded]="true"
+                    severity="danger"
+                    size="small"
+                    (click)="null"
+                ></p-button>
+            </div>
+        </div>
+    </ng-template>
+</p-card>
+
+<p-card class="hidden lg:block m-6" [style]="{width: '280px'}" styleClass="p-card-shadow text-center">
+    <ng-template pTemplate="header">
+        <div class="flex flex-column">
+            <div class="border-round-top headup">
+            </div>
+            <div class="justify-content-center" style="margin: -28px">
+                <p-avatar
+                    [label]="customer?.name?.toUpperCase()?.charAt(0)"
+                    styleClass="mr-2"
+                    [style]="{
+                        'background-color': iconLookAndFeel(customer?.email),
+                        'color': '#ffffff',
+                        'border': 'solid 3px #ffffff'
+                    }"
+                    shape="circle"
+                    size="xlarge"
+                ></p-avatar>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+        <h3>{{ customer?.name }}</h3>
+        <p class="thename">
+            <span class="font-bold text-gray-600">{{ getLabourLink() }}</span>
+            <span *ngIf="customer?.company" class="text-gray-500 ml-1 mr-1">{{ getConcat() }}</span>
+            <span class="font-bold text-gray-600">{{ customer?.company }}</span>
+        </p>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button
+            pRipple
+            icon="pi pi-comment"
+            [label]="'Watch reviews from ' + customer?.name?.split(' ')?.at(0)"
+            [outlined]="true"
+            [rounded]="true"
+            severity="secondary"
+            size="small"
+            (click)="null"
+        ></p-button>
+        <div *ngIf="adminPanel() == true" class="flex flex-row m-3 justify-content-center">
+            <p-button
+                pRipple
+                icon="pi pi-pencil"
+                [label]="'Edit'"
+                [outlined]="true"
+                [rounded]="true"
+                severity="success"
+                size="small"
+                class="mr-1"
+                (click)="null"
+            ></p-button>
+            <p-button
+                pRipple
+                icon="pi pi-trash"
+                [label]="'Delete'"
+                [outlined]="true"
+                [rounded]="true"
+                severity="danger"
+                size="small"
+                class="ml-1"
+                (click)="null"
+            ></p-button>
+        </div>
+    </ng-template>
+</p-card>

@@ -45,13 +45,17 @@
         <div class="main-container p-3">
             <button
                 pButton
+                pRipple
                 icon="pi pi-plus"
                 label="New customer"
                 class="p-button-success"
                 (click)="display = true"
             ></button>
-            <div>
-                list included
+            <div class="flex justify-content-center align-items-center gap-5 mt-3 flex-wrap">
+                <app-customer-card
+                    *ngFor="let customer of customers"
+                    [customer]="customer"
+                ></app-customer-card>
             </div>
         </div>
     </div>

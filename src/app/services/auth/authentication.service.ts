@@ -3,6 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { AuthenticationRequest } from 'src/app/models/authentication-request';
 import { Observable } from 'rxjs';
 import { IdResponse } from 'src/app/models/id-response';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,13 @@ export class AuthenticationService {
     
   }
 
-  login(authenticationRequest: AuthenticationRequest): Observable<HttpResponse<IdResponse>> {
-    return this.http.post<IdResponse>('http://localhost:8080/api/v1/auth/login', authenticationRequest, { observe: 'response' });
+  login(
+    authenticationRequest: AuthenticationRequest
+  ): Observable<HttpResponse<IdResponse>> {
+    return this.http.post<IdResponse>(
+      `${environment.api.url}/${environment.api.authUrl}`,
+      authenticationRequest,
+      { observe: 'response' }
+    );
   }
 }

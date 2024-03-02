@@ -3,6 +3,7 @@ import { AuthenticationRequest } from 'src/app/models/authentication-request';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import { Router } from '@angular/router';
 import { IdResponse } from 'src/app/models/id-response';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
