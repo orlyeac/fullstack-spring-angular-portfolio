@@ -1,6 +1,3 @@
-
-
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +24,7 @@ import { HttpInterceptorService } from './services/interceptor/http-interceptor.
 import { CustomerCardComponent } from './components/customer-card/customer-card.component';
 import { CardModule } from 'primeng/card';
 import { BadgeModule } from 'primeng/badge';
+
 @NgModule({
   declarations: [
     AppComponent,

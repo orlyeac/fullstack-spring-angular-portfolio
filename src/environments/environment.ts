@@ -1,4 +1,5 @@
 export const environment = {
+    production: true,
     api: {
         url: 'https://api-latest.onrender.com',
         authUrl: 'api/v1/auth/login',

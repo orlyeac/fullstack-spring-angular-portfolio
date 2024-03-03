@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { AuthenticationRequest } from 'src/app/models/authentication-request';
 import { Observable } from 'rxjs';
 import { IdResponse } from 'src/app/models/id-response';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
