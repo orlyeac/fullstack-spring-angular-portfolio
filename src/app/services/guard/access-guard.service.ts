@@ -16,3 +16,19 @@ export const CustomersGuard: CanActivateFn = (
   inject(Router).navigate(['login']);
   return false;
 }
+
+export const LoginGuard: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  let token: string | null = localStorage.getItem('token');
+  let id: string | null = localStorage.getItem('id');
+  if (token && id) {
+    let jwtHelp = new JwtHelperService();
+    if (!jwtHelp.isTokenExpired(token)) {
+      inject(Router).navigate(['customers']);
+      return false;
+    }
+  }
+  return true;
+}

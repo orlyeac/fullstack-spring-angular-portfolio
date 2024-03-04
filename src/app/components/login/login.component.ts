@@ -40,6 +40,17 @@ export class LoginComponent {
             if (e.error.statusCode === 401) {
               this.failText = 'Incorrect password and / or username';
             }
+            else if (e.error.statusCode === 403) {
+              localStorage.removeItem('id');
+              localStorage.removeItem('token');
+              this.failText = 'That might have been on us. Please try again';
+            }
+            else if (e.error.statusCode === 500) {
+              this.failText = 'That might have been on us. Please try again';
+            }
+            else {
+              this.failText = 'There was an unknown error. Please try again';
+            }
           }
         });
   }

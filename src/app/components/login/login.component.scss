@@ -20,6 +20,7 @@
     }
 }
 
+
 .up-image-level {
     background-image: linear-gradient(to top, #ffffff, #2196f3);
     .background {
@@ -27,17 +28,19 @@
         height: auto;
         max-width: 55%;
     }
-    h1 {
+    h3 {
         color: #ffffff;
-        font-size: 56px;
-    }
-    h2 {
-        color: #ffffff;
+        font-size: 40px;
+        margin: -20px;
     }
     h4 {
+        color: #ffffff;
+    }
+    h6 {
         label {
             color: #d8392b;
         }
         color: #aaaaaa;
     }
 }
+

@@ -1,6 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { CustomerResponse } from 'src/app/models/customer-response';
 import { CustomerService } from 'src/app/services/customer/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -13,7 +14,9 @@ export class CustomerComponent {
   displayMediumMenu: boolean = false;
   customers: CustomerResponse[] | undefined;
 
-  constructor(private customerService: CustomerService) {}
+  constructor(
+    private customerService: CustomerService,
+    private router: Router) {}
 
   handleMenuDisplay(event: boolean): void {
     if (event) {
@@ -33,6 +36,16 @@ export class CustomerComponent {
         },
         error: (e) => {
           console.log(e);
+          if (e.error.statusCode === 401) {
+            localStorage.removeItem('id');
+            localStorage.removeItem('token');
+            this.router.navigate(['login']);
+          }
+          else if (e.error.statusCode === 403) {
+            localStorage.removeItem('id');
+            localStorage.removeItem('token');
+            this.router.navigate(['login']);
+          }
         }
       });
   }

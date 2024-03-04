@@ -17,7 +17,8 @@
                 [style]="{ 'background-color': '#2196f3', color: '#ffffff' }"
                 shape="circle"
             ></p-avatar>
-            <h1>Login to your account</h1>
+            <h1 class="hidden md:block">Login to your account</h1>
+            <h3 class="block md:hidden">Login to your account</h3>
             <p-message
                 *ngIf="failText"
                 severity="error"
@@ -119,21 +120,21 @@
             h-full
             w-full"
         >
-            <h2>
+            <h4>
                 Welcome to
-            </h2>
-            <h1>
+            </h4>
+            <h3>
                 Tuxpoli
-            </h1>
-            <h2>
+            </h3>
+            <h4>
                 Fullstack Java/Angular
                 <br>
                 portfolio demo website
-            </h2>
-            <!-- <img src="assets/img/img000.png" class="background"> -->
-            <h4 class="mb-3">
-                Made with <label>&hearts;</label> by Orlando Abreu
             </h4>
+            <!-- <img src="assets/img/img000.png" class="background"> -->
+            <h6 class="mb-3">
+                Made with <label>&hearts;</label> by Orlando Abreu
+            </h6>
         </div>
     </div>
 </div>
