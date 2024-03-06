@@ -28,11 +28,6 @@ export class CustomerComponent {
   }
 
   ngOnInit() {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
     this.customerService.getAllCustomers()
       .subscribe({
         next: (customers) => {
