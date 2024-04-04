@@ -41,8 +41,7 @@ export class LoginComponent {
               this.failText = 'Incorrect password and / or username';
             }
             else if (e.error.statusCode === 403) {
-              localStorage.removeItem('id');
-              localStorage.removeItem('token');
+              localStorage.clear();
               this.failText = 'That might have been on us. Please try again';
             }
             else if (e.error.statusCode === 500) {

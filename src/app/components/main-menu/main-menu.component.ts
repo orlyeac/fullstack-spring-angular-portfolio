@@ -16,8 +16,9 @@ export class MainMenuComponent {
   ngOnInit(): void {
     this.menu = [
       {label: 'Home', icon: 'pi pi-home'},
-      {label: 'Customers', icon: 'pi pi-users'},
-      {label: 'Settings', icon: 'pi pi-cog'}
+      {label: 'Reviews', icon: 'pi pi-comments'},
+      {label: 'Subscribers', icon: 'pi pi-users'},
+      {label: 'Code', icon: 'pi pi-code'}
     ];
     this.minimizedMenu = this.menu.map((i) => {
       let k: MenuItem = {label: '', icon: i.icon};

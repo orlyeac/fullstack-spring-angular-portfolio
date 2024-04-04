@@ -24,7 +24,7 @@ import { HttpInterceptorService } from './services/interceptor/http-interceptor.
 import { CustomerCardComponent } from './components/customer-card/customer-card.component';
 import { CardModule } from 'primeng/card';
 import { BadgeModule } from 'primeng/badge';
-import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [

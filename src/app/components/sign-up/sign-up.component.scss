@@ -1,0 +1,46 @@
+.image-level {
+    background-image: linear-gradient(to right, #ffffff, #2196f3);
+    .background {
+        object-fit: scale-down;
+        height: auto;
+        max-width: 55%;
+    }
+    h1 {
+        color: #ffffff;
+        font-size: 56px;
+    }
+    h2 {
+        color: #ffffff;
+    }
+    h4 {
+        label {
+            color: #d8392b;
+        }
+        color: #aaaaaa;
+    }
+}
+
+
+.up-image-level {
+    background-image: linear-gradient(to top, #ffffff, #2196f3);
+    .background {
+        object-fit: scale-down;
+        height: auto;
+        max-width: 55%;
+    }
+    h1 {
+        color: #ffffff;
+        font-size: 40px;
+        margin: -20px;
+    }
+    h3 {
+        color: #ffffff;
+    }
+    h4 {
+        label {
+            color: #d8392b;
+        }
+        color: #aaaaaa;
+    }
+}
+

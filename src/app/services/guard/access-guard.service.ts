@@ -17,7 +17,7 @@ export const CustomersGuard: CanActivateFn = (
   return false;
 }
 
-export const LoginGuard: CanActivateFn = (
+export const LoginSignUpGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {

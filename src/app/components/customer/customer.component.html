@@ -39,11 +39,14 @@
     <div class="flex flex-column flex-grow-1" >
         <div>
             <app-header-layout
+                [user_logged] = "user_logged"
                 (emitterMenuDisplay)="handleMenuDisplay($event)"
+                (emitterLogout)="handleLogout()"
             ></app-header-layout>
         </div>
         <div class="main-container p-3">
             <button
+                *ngIf="user_logged?.authority && user_logged?.authority == 'ROLE_ADMIN'"
                 pButton
                 pRipple
                 icon="pi pi-plus"

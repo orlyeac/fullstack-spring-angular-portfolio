@@ -4,5 +4,7 @@ export interface CustomerResponse {
     email?: string;
     labourLink?: string;
     company?: string;
-    authority?: string[];
+    active?: boolean;
+    authority?: string;
+    createdAt?: string;
 }

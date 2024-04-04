@@ -50,6 +50,6 @@ export class CustomerCardComponent {
   }
 
   adminPanel(): boolean {
-    return this.customer?.authority?.indexOf('ROLE_ADMIN') != -1 || JSON.parse(localStorage.getItem('id')!).id == this.customer.id
+    return this.customer?.authority == 'ROLE_ADMIN' || JSON.parse(localStorage.getItem('id')!).id == this.customer?.id
   }
 }

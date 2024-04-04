@@ -20,25 +20,50 @@
                 [style]="{ 'background-color': '#2196f3', color: '#ffffff' }"
                 shape="circle"
             ></p-avatar>
-            <h1 class="hidden md:block">Login to your account</h1>
-            <h3 class="block md:hidden">Login to your account</h3>
+            <h1 class="hidden md:block">Join Tuxpoli now</h1>
+            <h3 class="block md:hidden">Join Tuxpoli now</h3>
             <p-message
                 *ngIf="failText"
                 severity="error"
                 [text]="failText"
                 styleClass="mb-3"
             ></p-message>
+            <div class="
+                flex
+                flex-row
+                m-3
+                justify-content-center"
+            >
+                Already have an account?&nbsp;
+                <a href="login">Log in now</a>
+            </div>    
+            <div class="field">
+                <label
+                    for="name"
+                    class="
+                        flex
+                        align-self-start"
+                >Name *</label>
+                <input
+                    id="name"
+                    pInputText
+                    [(ngModel)]="joinRequest.name"
+                    placeholder="John Doe"
+                    type="text"
+                    class="w-full"
+                >
+            </div>
             <div class="field">
                 <label
                     for="email"
                     class="
                         flex
                         align-self-start"
-                >Email</label>
+                >Email *</label>
                 <input
                     id="email"
                     pInputText
-                    [(ngModel)]="authenticationRequest.username"
+                    [(ngModel)]="joinRequest.email"
                     placeholder="johndoe@email.com"
                     type="email"
                     class="w-full"
@@ -50,30 +75,70 @@
                     class="
                         flex
                         align-self-start"
-                >Password</label>
+                >Password *</label>
                 <input
                     id="password"
                     pInputText
-                    [(ngModel)]="authenticationRequest.password"
+                    [(ngModel)]="joinRequest.password"
                     placeholder="Password"
                     type="password"
                     class="w-full"
                 >
             </div>
+            <div class="field">
+                <label
+                    for="confirmpassword"
+                    class="
+                        flex
+                        align-self-start"
+                >Confirm Password *</label>
+                <input
+                    id="confirmpassword"
+                    pInputText
+                    [(ngModel)]="password"
+                    placeholder="Confirm Password"
+                    type="password"
+                    class="w-full"
+                >
+            </div>
+            <div class="field flex flex-column align-items-start">
+                <label for="labourLink">Labour link * <span class="text-gray-500">(How are you related to Orlando Abreu?)</span></label>
+                <p-dropdown
+                    id="labourLink"
+                    [options]="options"
+                    [(ngModel)]="joinRequest.labourLink"
+                    [showClear]="true"
+                    placeholder="Choose option"
+                ></p-dropdown>
+            </div>
+            <div class="field">
+                <label
+                    for="company"
+                    class="
+                        flex
+                        align-self-start"
+                >Company&nbsp;<span class="text-gray-500">(Where were you related to Orlando Abreu?)</span></label>
+                <label
+                    for="company"
+                    class="
+                        flex
+                        align-self-start"
+                ><span class="text-gray-500">Or just enter your current company instead</span></label>
+                <input
+                    id="company"
+                    pInputText
+                    [(ngModel)]="joinRequest.company"
+                    placeholder="Company"
+                    type="text"
+                    class="w-full"
+                >
+            </div>
             <button
                 pButton
-                (click)="login()"
-                label="Login"
+                (click)="signUp()"
+                label="Sign up"
                 class="w-full"
             ></button>
-            <div class="
-                flex
-                flex-row
-                mt-3"
-            >
-                You do not have an account yet?&nbsp;
-                <a href="signup">Sign up now</a>
-            </div>    
         </div>
     </div>
     <div class="

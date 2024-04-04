@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { CustomerResponse } from 'src/app/models/customer-response';
+import { IconLookAndFeelService } from 'src/app/services/icon-look-and-feel/icon-look-and-feel.service';
 
 @Component({
   selector: 'app-header-layout',
@@ -7,32 +9,32 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./header-layout.component.scss']
 })
 export class HeaderLayoutComponent {
-  username: string = 'janedoe@email.com';
+  @Input()
+  user_logged: CustomerResponse | undefined;
+
+  @Output()
+  emitterLogout: EventEmitter<void> = new EventEmitter<void>();
 
   menu: MenuItem[] = [
     {label: 'Profile', icon: 'pi pi-user'},
-    {label: 'Settings', icon: 'pi pi-cog'},
     {separator: true},
-    {label: 'Logout', icon: 'pi pi-sign-out'}
+    {label: 'Logout', icon: 'pi pi-sign-out', command: () => {
+      this.emitterLogout.emit();
+    }}
   ];
 
   @Output()
   emitterMenuDisplay: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  iconLookAndFeel(username: string): { 'background-color': string, color: string } {
-    let hash: number = 0;
-    for (let i: number = 0 ; i < username.length ; i++) {
-      hash += username.charCodeAt(i) + ((hash << 5) + hash);
+  constructor(private iconLookAndFeelService: IconLookAndFeelService) {
+
+  }
+
+  iconLookAndFeel(username: string | undefined): string {
+    if (username == undefined) {
+      username = 'unknown'
     }
-    let look: string = '#';
-    for (let i: number = 0 ; i < 3 ; i++) {
-      let hashItem: number = (hash >> (i * 8)) & 0xff;
-      look += hashItem.toString(16).padStart(2, '0');
-    }
-    return {
-      'background-color': look,
-      'color': '#ffffff'
-    };
+    return this.iconLookAndFeelService.iconLookAndFeel(username);
   }
 
   emitMenuDisplay(fullMenu: boolean): void {

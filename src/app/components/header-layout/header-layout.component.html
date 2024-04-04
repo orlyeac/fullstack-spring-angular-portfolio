@@ -37,7 +37,7 @@
         ></button>
     </div>
     <div class="flex flex-row">
-        <button
+        <!-- <button
             pButton
             pRipple
             type="button"
@@ -46,16 +46,19 @@
                 p-button-rounded
                 p-button-secondary
                 p-button-text mr-3"
-        ></button>
+        ></button> -->
         <p-avatar
-            [label]="username[0].toUpperCase()"
-            styleClass="mr-2"
-            [style]="iconLookAndFeel(username)"
+            [label]="user_logged?.email?.charAt(0)?.toUpperCase()"
+            styleClass="mr-2 mt-1"
+            [style]="{
+                'background-color': iconLookAndFeel(user_logged?.email),
+                'color': '#ffffff'
+            }"
             shape="circle"
         ></p-avatar>
         <div>
-            <p class="text-base mb-0 mt-1 text-gray-700">{{ username }}</p>
-            <p class="text-sm mb-1 mt-0 text-gray-500">ADMIN</p>
+            <p class="text-base mb-0 mt-0 text-gray-700">{{ user_logged?.email }}</p>
+            <p class="text-sm mb-0 mt-0 text-gray-500">{{ user_logged?.authority }}</p>
         </div>
         <div>
             <button
