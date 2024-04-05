@@ -1,208 +1,179 @@
-<div class="flex flex-column-reverse md:flex-row" style="height: 99vh;">
-    <div class="
-        flex
-        flex-column
-        justify-content-center
-        md:col-6
-        ml-3
-        mr-3
-        mb-7
-        -mt-1"
-    >
-        <div class="
-            text-center
-            m-auto"
-        >
-            <p-avatar
-                label="T"
-                styleClass="mr-2 ml-2"
-                size="xlarge"
-                [style]="{ 'background-color': '#2196f3', color: '#ffffff' }"
-                shape="circle"
-            ></p-avatar>
-            <h1 class="hidden md:block">Join Tuxpoli now</h1>
-            <h3 class="block md:hidden">Join Tuxpoli now</h3>
-            <p-message
-                *ngIf="failText"
-                severity="error"
-                [text]="failText"
-                styleClass="mb-3"
-            ></p-message>
-            <div class="
-                flex
-                flex-row
-                m-3
-                justify-content-center"
-            >
-                Already have an account?&nbsp;
-                <a href="login">Log in now</a>
-            </div>    
-            <div class="field">
-                <label
-                    for="name"
-                    class="
-                        flex
-                        align-self-start"
-                >Name *</label>
-                <input
-                    id="name"
-                    pInputText
-                    [(ngModel)]="joinRequest.name"
-                    placeholder="John Doe"
-                    type="text"
-                    class="w-full"
-                >
-            </div>
-            <div class="field">
-                <label
-                    for="email"
-                    class="
-                        flex
-                        align-self-start"
-                >Email *</label>
-                <input
-                    id="email"
-                    pInputText
-                    [(ngModel)]="joinRequest.email"
-                    placeholder="johndoe@email.com"
-                    type="email"
-                    class="w-full"
-                >
-            </div>
-            <div class="field">
-                <label
-                    for="password"
-                    class="
-                        flex
-                        align-self-start"
-                >Password *</label>
-                <input
-                    id="password"
-                    pInputText
-                    [(ngModel)]="joinRequest.password"
-                    placeholder="Password"
-                    type="password"
-                    class="w-full"
-                >
-            </div>
-            <div class="field">
-                <label
-                    for="confirmpassword"
-                    class="
-                        flex
-                        align-self-start"
-                >Confirm Password *</label>
-                <input
-                    id="confirmpassword"
-                    pInputText
-                    [(ngModel)]="password"
-                    placeholder="Confirm Password"
-                    type="password"
-                    class="w-full"
-                >
-            </div>
-            <div class="field flex flex-column align-items-start">
-                <label for="labourLink">Labour link * <span class="text-gray-500">(How are you related to Orlando Abreu?)</span></label>
-                <p-dropdown
-                    id="labourLink"
-                    [options]="options"
-                    [(ngModel)]="joinRequest.labourLink"
-                    [showClear]="true"
-                    placeholder="Choose option"
-                ></p-dropdown>
-            </div>
-            <div class="field">
-                <label
-                    for="company"
-                    class="
-                        flex
-                        align-self-start"
-                >Company&nbsp;<span class="text-gray-500">(Where were you related to Orlando Abreu?)</span></label>
-                <label
-                    for="company"
-                    class="
-                        flex
-                        align-self-start"
-                ><span class="text-gray-500">Or just enter your current company instead</span></label>
-                <input
-                    id="company"
-                    pInputText
-                    [(ngModel)]="joinRequest.company"
-                    placeholder="Company"
-                    type="text"
-                    class="w-full"
-                >
-            </div>
-            <button
-                pButton
-                (click)="signUp()"
-                label="Sign up"
-                class="w-full"
-            ></button>
+<div class="hidden md:block">
+    <div class="flex flex-row" style="height: 99vh;">
+        <div class="flex flex-column text-center col-6">
+            <ng-container
+                *ngTemplateOutlet="theform"
+            ></ng-container>
         </div>
-    </div>
-    <div class="
-        hidden
-        md:block
-        h-full
-        w-full"
-    >
-        <div class="
-            flex
-            flex-column
-            justify-content-center
-            align-items-center
-            image-level
-            h-full
-            w-full"
-        >
-            <h2>
-                Welcome to
-            </h2>
-            <h1>
-                Tuxpoli
-            </h1>
-            <h2>
-                Fullstack Java/Angular
-                <br>
-                portfolio demo website
-            </h2>
-            <!-- <img src="assets/img/img000.png" class="background"> -->
-            <h4 class="mb-3">
-                Made with <label>&hearts;</label> by Orlando Abreu
-            </h4>
-        </div>
-    </div>
-    <div class="
-        block
-        md:hidden
-        h-full
-        w-full"
-    >
-        <div class="
-            flex
-            flex-column
-            justify-content-center
-            align-items-center
-            up-image-level
-            h-full
-            w-full"
-        >
-            <h3>
-                Welcome to
-            </h3>
-            <h1>
-                Tuxpoli
-            </h1>
-            <h3>
-                Fullstack Java/Angular
-                <br>
-                portfolio demo website
-            </h3>
-            <!-- <img src="assets/img/img000.png" class="background"> -->
-            <h4 class="mt-1 mb-3">
-                Made with <label>&hearts;</label> by Orlando Abreu
-            </h4>
+        <div class="flex flex-column justify-content-center text-center col-6 image-level h-full">
+            <ng-container
+                *ngTemplateOutlet="thewelcome"
+            ></ng-container>
         </div>
     </div>
 </div>
+
+<div class="block md:hidden">
+    <div class="flex flex-column">
+        <div class="text-center up-image-level">
+            <ng-container
+                *ngTemplateOutlet="thewelcome"
+            ></ng-container>
+        </div>
+        <div class="text-center">
+            <ng-container
+                *ngTemplateOutlet="theform"
+            ></ng-container>
+        </div>
+    </div>
+</div>
+    
+<ng-template #theform>
+    <div class="m-auto">
+        <p-avatar
+            label="T"
+            styleClass="mr-2 ml-2"
+            size="xlarge"
+            [style]="{ 'background-color': '#2196f3', color: '#ffffff' }"
+            shape="circle"
+        ></p-avatar>
+        <h1 class="hidden md:block">Join Tuxpoli now</h1>
+        <h3 class="block md:hidden">Join Tuxpoli now</h3>
+        <p-message
+            *ngIf="failText"
+            severity="error"
+            [text]="failText"
+            styleClass="mb-3"
+        ></p-message>
+        <div class="
+            flex
+            flex-row
+            m-3
+            justify-content-center"
+        >
+            Already have an account?&nbsp;
+            <a href="login">Log in now</a>
+        </div>    
+        <div class="field">
+            <label
+                for="name"
+                class="
+                    flex
+                    align-self-start"
+            >Name *</label>
+            <input
+                id="name"
+                pInputText
+                [(ngModel)]="joinRequest.name"
+                placeholder="John Doe"
+                type="text"
+                class="w-full"
+            >
+        </div>
+        <div class="field">
+            <label
+                for="email"
+                class="
+                    flex
+                    align-self-start"
+            >Email *</label>
+            <input
+                id="email"
+                pInputText
+                [(ngModel)]="joinRequest.email"
+                placeholder="johndoe@email.com"
+                type="email"
+                class="w-full"
+            >
+        </div>
+        <div class="field">
+            <label
+                for="password"
+                class="
+                    flex
+                    align-self-start"
+            >Password *</label>
+            <input
+                id="password"
+                pInputText
+                [(ngModel)]="joinRequest.password"
+                placeholder="Password"
+                type="password"
+                class="w-full"
+            >
+        </div>
+        <div class="field">
+            <label
+                for="confirmpassword"
+                class="
+                    flex
+                    align-self-start"
+            >Confirm Password *</label>
+            <input
+                id="confirmpassword"
+                pInputText
+                [(ngModel)]="password"
+                placeholder="Confirm Password"
+                type="password"
+                class="w-full"
+            >
+        </div>
+        <div class="field flex flex-column align-items-start">
+            <label for="labourLink">Labour link * <span class="text-gray-500">(How are you related to Orlando Abreu?)</span></label>
+            <p-dropdown
+                id="labourLink"
+                [options]="options"
+                [(ngModel)]="joinRequest.labourLink"
+                [showClear]="true"
+                placeholder="Choose option"
+            ></p-dropdown>
+        </div>
+        <div class="field">
+            <label
+                for="company"
+                class="
+                    flex
+                    align-self-start"
+            >Company&nbsp;<span class="text-gray-500">(Where were you related to Orlando Abreu?)</span></label>
+            <label
+                for="company"
+                class="
+                    flex
+                    align-self-start"
+            ><span class="text-gray-500">Or just enter your current company instead</span></label>
+            <input
+                id="company"
+                pInputText
+                [(ngModel)]="joinRequest.company"
+                placeholder="Company"
+                type="text"
+                class="w-full"
+            >
+        </div>
+        <button
+            pButton
+            (click)="signUp()"
+            label="Sign up"
+            class="w-full"
+        ></button>
+    </div>
+</ng-template>
+
+<ng-template #thewelcome>
+    <h2>
+        Welcome to
+
+    </h2>
+    <h1>
+        Tuxpoli
+    </h1>
+    <h2>
+        Fullstack Java/Angular
+        <br>
+        portfolio demo website
+    </h2>
+    <!-- <img src="assets/img/img000.png" class="background"> -->
+    <h4 class="mb-3">
+        Made with <label>&hearts;</label> by Orlando Abreu
+    </h4>
+</ng-template>
