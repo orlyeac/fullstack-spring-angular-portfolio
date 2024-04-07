@@ -25,6 +25,7 @@ import { CustomerCardComponent } from './components/customer-card/customer-card.
 import { CardModule } from 'primeng/card';
 import { BadgeModule } from 'primeng/badge';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     InsertUpdateComponent,
     LoginComponent,
     CustomerCardComponent,
-    SignUpComponent
+    SignUpComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,13 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { LoginComponent } from './components/login/login.component';
 import { CustomersGuard, LoginSignUpGuard } from './services/guard/access-guard.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
+  {
+    path: "",
+    component: LandingComponent
+  },
   {
     path: "customers",
     component: CustomerComponent,
