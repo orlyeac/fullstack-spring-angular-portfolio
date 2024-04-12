@@ -25,8 +25,9 @@ import { CustomerCardComponent } from './components/customer-card/customer-card.
 import { CardModule } from 'primeng/card';
 import { BadgeModule } from 'primeng/badge';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CarouselModule } from 'primeng/carousel';
 import { LandingComponent } from './components/landing/landing.component';
-
+import { TagModule } from 'primeng/tag';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,9 @@ import { LandingComponent } from './components/landing/landing.component';
     HttpClientModule,
     MessageModule,
     CardModule,
-    BadgeModule
+    BadgeModule,
+    CarouselModule,
+    TagModule
   ],
   providers: [
     {
