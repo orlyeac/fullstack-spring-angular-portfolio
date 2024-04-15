@@ -32,13 +32,15 @@
     <div class="
         m-auto"
     >
-        <p-avatar
-            label="T"
-            styleClass="mr-2 ml-2"
-            size="xlarge"
-            [style]="{ 'background-color': '#2196f3', color: '#ffffff' }"
-            shape="circle"
-        ></p-avatar>
+        <a [routerLink]="'/'" style="text-decoration: none;">
+            <p-avatar
+                label="T"
+                styleClass="mr-2 ml-2"
+                size="xlarge"
+                [style]="{ 'background-color': '#2196f3', color: '#ffffff' }"
+                shape="circle"
+            ></p-avatar>
+        </a>
         <h1 class="hidden md:block">Login to your account</h1>
         <h3 class="block md:hidden">Login to your account</h3>
         <p-message
@@ -47,51 +49,54 @@
             [text]="failText"
             styleClass="mb-3"
         ></p-message>
-        <div class="field">
-            <label
-                for="email"
-                class="
-                    flex
-                    align-self-start"
-            >Email</label>
-            <input
-                id="email"
-                pInputText
-                [(ngModel)]="authenticationRequest.username"
-                placeholder="johndoe@email.com"
-                type="email"
+        <form (ngSubmit)="login()">
+            <div class="field">
+                <label
+                    for="email"
+                    class="
+                        flex
+                        align-self-start"
+                >Email</label>
+                <input
+                    name="email"
+                    pInputText
+                    [(ngModel)]="authenticationRequest.username"
+                    placeholder="johndoe@email.com"
+                    type="email"
+                    class="w-full"
+                >
+            </div>
+            <div class="field">
+                <label
+                    for="password"
+                    class="
+                        flex
+                        align-self-start"
+                >Password</label>
+                <input
+                    name="password"
+                    pInputText
+                    [(ngModel)]="authenticationRequest.password"
+                    placeholder="Password"
+                    type="password"
+                    class="w-full"
+                >
+            </div>
+            <button
+                pButton
+                type="submit"
+                (click)="login()"
+                label="Login"
                 class="w-full"
-            >
-        </div>
-        <div class="field">
-            <label
-                for="password"
-                class="
-                    flex
-                    align-self-start"
-            >Password</label>
-            <input
-                id="password"
-                pInputText
-                [(ngModel)]="authenticationRequest.password"
-                placeholder="Password"
-                type="password"
-                class="w-full"
-            >
-        </div>
-        <button
-            pButton
-            (click)="login()"
-            label="Login"
-            class="w-full"
-        ></button>
+            ></button>
+        </form>
         <div class="
             flex
             flex-row
             mt-3"
         >
             You do not have an account yet?&nbsp;
-            <a href="signup">Sign up now</a>
+            <a [routerLink]="'/signup'">Sign up now</a>
         </div>    
     </div>
 </ng-template>    

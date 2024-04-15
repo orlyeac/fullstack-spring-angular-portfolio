@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationRequest } from 'src/app/models/authentication-request';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import { Router } from '@angular/router';
@@ -12,12 +12,17 @@ import { IdResponse } from 'src/app/models/id-response';
 export class LoginComponent {
   failText: string = '';
   authenticationRequest: AuthenticationRequest = {};
-
+  state: { [k: string]: any} | undefined;
+  
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
   ) {
     
+  }
+
+  ngOnInit() {
+    this.state = this.router.getCurrentNavigation()?.extras.state
   }
   
   login(): void {
@@ -30,7 +35,11 @@ export class LoginComponent {
             if (token && id) {
               localStorage.setItem('token', token);
               localStorage.setItem('id', JSON.stringify(id));
-              this.router.navigate(['customers']);
+              let to = '';
+              if (this.state) {
+                to = this.state['to'];
+              }
+              this.router.navigate([to]);
             }
             else {
               this.failText = 'Inadecuate response from server for login attempt';

@@ -20,11 +20,17 @@ export class SignUpComponent {
   );
   password: string | undefined;
   
+  state: { [k: string]: any} | undefined;
+  
   constructor(
     private customerService: CustomerService,
     private router: Router
   ) {
     
+  }
+  
+  ngOnInit() {
+    this.state = this.router.getCurrentNavigation()?.extras.state
   }
   
   signUp(): void {
@@ -52,7 +58,11 @@ export class SignUpComponent {
             if (token && id) {
               localStorage.setItem('token', token);
               localStorage.setItem('id', JSON.stringify(id));
-              this.router.navigate(['customers']);
+              let to = '';
+              if (this.state) {
+                to = this.state['to'];
+              }
+              this.router.navigate([to]);
             }
             else {
               this.failText = 'Inadecuate response from server for login attempt';

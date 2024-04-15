@@ -18,7 +18,10 @@ export class CustomerComponent {
 
   constructor(
     private customerService: CustomerService,
-    private router: Router) {}
+    private router: Router
+  ) {
+    
+  }
 
   handleMenuDisplay(event: boolean): void {
     if (event) {
@@ -74,6 +77,6 @@ export class CustomerComponent {
 
   handleLogout(): void {
     localStorage.clear();
-    this.router.navigate(['login']);
+    this.router.navigate(['']);
   }
 }
